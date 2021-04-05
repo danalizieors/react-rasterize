@@ -1,6 +1,6 @@
 {
     "name": "react-rasterize",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Convert React SVG elements to images",
     "repository": "https://github.com/danalizieors/react-rasterize",
     "author": "Danalizi-Erőss Örs <danalizieors@gmail.com>",
@@ -23,8 +23,8 @@
         "verify": "run-s verify:*",
         "test": "jest --config .jestrc.json --passWithNoTests",
         "manual": "parcel manual/index.html --cache-dir build/cache --out-dir build/manual",
-        "start": "microbundle watch",
-        "build": "microbundle",
+        "start": "microbundle watch --jsx React.createElement",
+        "build": "microbundle --jsx React.createElement",
         "clean": "rm -rf build",
         "prepublish": "yarn build"
     },
