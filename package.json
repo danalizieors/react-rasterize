@@ -1,6 +1,6 @@
 {
     "name": "react-rasterize",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Convert React SVG elements to images",
     "repository": "https://github.com/danalizieors/react-rasterize",
     "author": "Danalizi-Erőss Örs <danalizieors@gmail.com>",
