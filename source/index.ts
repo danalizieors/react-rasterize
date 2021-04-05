@@ -1,1 +1,2 @@
-export const add = (a: number, b: number) => a + b
+export { Rasterizer } from './components/Rasterizer'
+export { useRasterizer } from './hooks/useRasterizer'
