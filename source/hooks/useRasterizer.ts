@@ -8,26 +8,6 @@ export type RasterizerOptions = {
     quality?: number
 }
 
-const drawImageCentered = (
-    canvas: HTMLCanvasElement,
-    image: HTMLImageElement,
-) => {
-    const imageRatio = image.width / image.height
-    const canvasRatio = canvas.width / canvas.height
-    const imageTallerThanCanvas = imageRatio < canvasRatio
-
-    const [width, height] = imageTallerThanCanvas
-        ? [canvas.height * imageRatio, canvas.height]
-        : [canvas.width, canvas.width / imageRatio]
-
-    const [x, y] = imageTallerThanCanvas
-        ? [(canvas.width - width) / 2, 0]
-        : [0, (canvas.height - height) / 2]
-
-    const context = canvas.getContext('2d')
-    context?.drawImage(image, x, y, width, height)
-}
-
 export const useRasterizer = (
     element: JSX.Element,
     options: RasterizerOptions,
@@ -45,7 +25,8 @@ export const useRasterizer = (
             canvas.width = options.width
             canvas.height = options.height
 
-            drawImageCentered(canvas, image)
+            const context = canvas.getContext('2d')
+            context?.drawImage(image, 0, 0)
 
             const data = canvas.toDataURL(options.type, options.quality)
 
